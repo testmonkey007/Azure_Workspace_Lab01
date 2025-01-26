@@ -8,10 +8,22 @@ terraform {
   }
 }
 
+variable "AWS_ACCESS_KEY_ID" {
+  description = "AWS Access Key ID"
+  type        = string
+  sensitive   = true
+}
+
+variable "AWS_SECRET_ACCESS_KEY" {
+  description = "AWS Secret Access Key"
+  type        = string
+  sensitive   = true
+}
+
 provider "aws" {
   region = "us-east-2"
-  access_key = var.aws_access_key_id
-  secret_key = var.aws_secret_access_key
+  access_key = var.AWS_ACCESS_KEY_ID
+  secret_key = var.AWS_SECRET_ACCESS_KEY
 }
 
 # Create the VPC
